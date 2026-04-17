@@ -1,37 +1,706 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en" id="html-root">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Play silently... it's just for you!</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G0BVPQ1ETG"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-G0BVPQ1ETG');
-    </script>
-
-    <meta property="og:title" content="Play silently... it's just for you!" />
-    <meta property="og:description" content="Private, discreet and made for you. Enjoy your moment in silence." />
-    <meta property="og:image" content="https://aprivateinvite.github.io/MyCard/card/card-image.jpg" />
-    <meta property="og:url" content="https://t.ajrkmx1.com/205192/8780/0?aff_sub5=SF_006OG000004lmDN" />
-    <meta property="og:type" content="website" />
+    <title>Meet Singles Near You | Private Online Dating</title>
+    <meta name="description" content="Meet real singles near you today. Discover local profiles and start chatting instantly on a private and secure platform.">
     
+    <link rel="canonical" href="https://yoursite.com">
+    
+    <link rel="alternate" hreflang="en" href="https://yoursite.com/en" />
+    <link rel="alternate" hreflang="pt" href="https://yoursite.com/pt" />
+    <link rel="alternate" hreflang="es" href="https://yoursite.com/es" />
+    <link rel="alternate" hreflang="fr" href="https://yoursite.com/fr" />
+    <link rel="alternate" hreflang="x-default" href="https://yoursite.com" />
+
+    <meta property="og:title" content="Meet Singles Near You">
+    <meta property="og:description" content="Discover new people near you today.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yoursite.com">
+    <meta property="og:image" content="https://raw.githubusercontent.com/aprivateinvite/LocalMatches/refs/heads/main/imagem/image_1.jpeg">
+
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Play silently... it's just for you!">
-    <meta name="twitter:description" content="Private, discreet and made for you. Enjoy your moment in silence.">
-    <meta name="twitter:image" content="https://aprivateinvite.github.io/MyCard/card/card-image.jpg">
-
-    <meta http-equiv="refresh" content="0; url=https://t.ajrkmx1.com/205192/8780/0?aff_sub5=SF_006OG000004lmDN" />
+    <meta name="twitter:title" content="Meet Singles Near You">
+    <meta name="twitter:description" content="Discover new people near you today.">
+    
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="preload" href="https://unpkg.com/vue@3/dist/vue.global.prod.js" as="script">
 
     <style>
-        body { background-color: #000; }
+        /* SECTION 13: MOBILE-FIRST UX & PERFORMANCE CSS */
+        :root {
+            --bg-color: #0b1120;
+            --bg-secondary: #1e293b;
+            --primary: #00BFFF;
+            --primary-hover: #0099cc;
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+            --success: #22c55e;
+            --danger: #ef4444;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            background: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        /* Typography */
+        h1, h2, h3 { margin-top: 0; line-height: 1.2; }
+        h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; }
+        h2 { font-size: clamp(1.75rem, 4vw, 2.25rem); margin-bottom: 1.5rem; text-align: center; }
+        h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+        p { color: var(--text-muted); font-size: 1rem; margin-bottom: 1rem; }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 20px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-color) 100%);
+            border-bottom: 1px solid #334155;
+        }
+
+        .hero-img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 12px;
+            margin: 20px auto;
+            display: block;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            object-fit: cover;
+        }
+
+        /* High-Conversion CTA */
+        .cta {
+            background: var(--primary);
+            padding: 18px 36px;
+            border-radius: 50px;
+            display: inline-block;
+            text-decoration: none;
+            color: white;
+            font-size: 1.125rem;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: transform 0.2s, background 0.2s;
+            box-shadow: 0 4px 14px rgba(0, 191, 255, 0.4);
+            cursor: pointer;
+            border: none;
+            width: 100%;
+            max-width: 350px;
+            text-align: center;
+        }
+        .cta:hover { transform: translateY(-2px); background: var(--primary-hover); }
+
+        /* Social Proof Banner */
+        .social-proof {
+            background: rgba(30, 41, 59, 0.8);
+            padding: 10px;
+            font-size: 0.875rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #334155;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+        .pulse {
+            width: 10px; height: 10px; background: var(--success);
+            border-radius: 50%; display: inline-block;
+            animation: pulse-animation 2s infinite;
+        }
+        @keyframes pulse-animation {
+            0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+        }
+
+        /* Grids */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: var(--bg-secondary);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #334155;
+            transition: transform 0.3s ease;
+        }
+        .card:hover { transform: translateY(-5px); }
+
+        /* Interactive Swipe Interface */
+        .swipe-container {
+            max-width: 400px;
+            margin: 40px auto;
+            position: relative;
+            height: 500px;
+        }
+        .swipe-card {
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            overflow: hidden;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .swipe-img {
+            width: 100%; height: 75%; object-fit: cover;
+            pointer-events: none;
+        }
+        .swipe-info { padding: 15px; height: 25%; display: flex; flex-direction: column; justify-content: center; }
+        .swipe-info h3 { margin: 0; font-size: 1.5rem; }
+        .swipe-actions {
+            position: absolute; bottom: 20px; left: 0; width: 100%;
+            display: flex; justify-content: space-around; padding: 0 20px;
+        }
+        .btn-swipe {
+            width: 60px; height: 60px; border-radius: 50%;
+            border: none; cursor: pointer; font-size: 24px;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3); transition: transform 0.1s;
+        }
+        .btn-swipe:active { transform: scale(0.9); }
+        .btn-dislike { background: var(--bg-color); color: var(--danger); border: 2px solid var(--danger); }
+        .btn-like { background: var(--bg-color); color: var(--success); border: 2px solid var(--success); }
+
+        /* Pre-Funnel Quiz */
+        .quiz-container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: var(--bg-secondary);
+            padding: 40px 20px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #334155;
+        }
+        .quiz-option {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid #334155;
+            padding: 15px; margin: 10px 0; border-radius: 8px;
+            cursor: pointer; transition: background 0.2s;
+            font-size: 1.1rem;
+        }
+        .quiz-option:hover { background: rgba(255,255,255,0.1); border-color: var(--primary); }
+        .progress-bar { height: 6px; background: #334155; border-radius: 3px; margin-bottom: 30px; overflow: hidden; }
+        .progress-fill { height: 100%; background: var(--primary); transition: width 0.3s ease; }
+
+        /* Trust Signals */
+        .trust-signals {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;
+            margin-top: 40px; border-top: 1px solid #334155; padding-top: 30px;
+        }
+        .trust-item { display: flex; align-items: center; gap: 8px; font-size: 0.875rem; color: var(--text-muted); }
+        
+        /* Programmatic SEO Links */
+        .seo-links {
+            display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+            margin-top: 20px;
+        }
+        .seo-links a {
+            color: var(--text-muted); text-decoration: none; font-size: 0.875rem;
+            background: var(--bg-secondary); padding: 5px 12px; border-radius: 15px;
+        }
+        .seo-links a:hover { color: var(--text-main); background: var(--primary); }
+
+        /* FAQ */
+        .faq-item {
+            background: var(--bg-secondary); border: 1px solid #334155;
+            border-radius: 8px; margin-bottom: 10px; padding: 20px;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            .hero { padding: 40px 15px; }
+            .container { padding: 30px 15px; }
+            .swipe-container { height: 450px; }
+            .social-proof { flex-direction: column; gap: 5px; padding: 12px; }
+        }
     </style>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js" defer></script>
 </head>
+
 <body>
-    </body>
+
+<div id="app" v-cloak>
+
+    <div class="social-proof">
+        <div><span class="pulse"></span> <strong>{{ onlineUsers.toLocaleString() }}</strong> {{ t.usersOnline }}</div>
+        <div style="opacity: 0.8; font-size: 0.8rem;">| {{ recentActivity }}</div>
+    </div>
+
+    <header class="hero">
+        <div class="container">
+            <h1>{{ t.heroHeadline.replace('{city}', city) }}</h1>
+            
+            <p>{{ t.heroSubheadline.replace('{time}', timeOfDay).replace('{device}', deviceType) }}</p>
+            
+            <img src="https://raw.githubusercontent.com/aprivateinvite/LocalMatches/refs/heads/main/imagem/image_1.jpeg" 
+                 alt="Online dating match" class="hero-img" width="800" height="533" fetchpriority="high">
+            
+            <a :href="affiliateLink" class="cta">{{ t.ctaPrimary.replace('{city}', city) }}</a>
+            
+            <div class="trust-signals" style="border:none; margin-top:15px; padding:0;">
+                <span class="trust-item">{{ t.securePlatform }}</span>
+                <span class="trust-item">{{ t.privateProfiles }}</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <section v-if="swipeActive" class="swipe-section">
+            <h2>{{ t.swipeTitle.replace('{city}', city) }}</h2>
+            <p style="text-align:center;">{{ t.swipeSub }}</p>
+            
+            <div class="swipe-container" 
+                 @touchstart="touchStart" 
+                 @touchend="touchEnd" 
+                 @touchmove.prevent="touchMove">
+                 
+                <div v-for="(profile, index) in swipeProfiles" :key="index"
+                     class="swipe-card"
+                     v-show="index === currentProfileIndex"
+                     :style="{ transform: swipeTransform, opacity: swipeOpacity }">
+                    <img :src="profile.img" :alt="profile.name" class="swipe-img" loading="lazy">
+                    <div class="swipe-info">
+                        <h3>{{ profile.name }}, {{ profile.age }}</h3>
+                        <p>📍 {{ profile.distance }} {{ t.milesAway }}</p>
+                    </div>
+                    <div class="swipe-actions">
+                        <button class="btn-swipe btn-dislike" @click="handleSwipe('left')" aria-label="Dislike">✕</button>
+                        <button class="btn-swipe btn-like" @click="handleSwipe('right')" aria-label="Like">♥</button>
+                    </div>
+                </div>
+
+                <div v-if="currentProfileIndex >= swipeProfiles.length" class="swipe-card" style="justify-content:center; align-items:center; padding: 20px; text-align:center;">
+                    <h3>{{ t.matchSuccess }}</h3>
+                    <p>{{ t.matchSub }}</p>
+                    <a :href="affiliateLink" class="cta">{{ t.ctaMatch }}</a>
+                </div>
+            </div>
+        </section>
+
+        <section v-if="!swipeActive && !quizCompleted" class="quiz-container" id="quiz">
+            <h2>{{ t.quizTitle }}</h2>
+            <div class="progress-bar">
+                <div class="progress-fill" :style="{ width: ((quizStep + 1) / quizQuestions.length) * 100 + '%' }"></div>
+            </div>
+            
+            <div v-if="quizQuestions[quizStep]">
+                <h3>{{ quizQuestions[quizStep].question }}</h3>
+                <div class="grid" style="grid-template-columns: 1fr; gap: 10px; margin-top:20px;">
+                    <div v-for="(option, idx) in quizQuestions[quizStep].options" :key="idx" 
+                         class="quiz-option" @click="nextQuizStep">
+                        {{ option }}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section v-if="quizCompleted" class="quiz-container" style="background: rgba(34, 197, 94, 0.1); border-color: var(--success);">
+            <h2>{{ t.quizCompleteTitle }}</h2>
+            <p>{{ t.quizCompleteSub.replace('{city}', city) }}</p>
+            <a :href="affiliateLink" class="cta">{{ t.ctaFinal }}</a>
+        </section>
+
+        <section style="margin-top: 60px;">
+            <h2>{{ t.howItWorks }}</h2>
+            <div class="grid">
+                <article class="card">
+                    <h3>1. {{ t.step1Title }}</h3>
+                    <p>{{ t.step1Desc }}</p>
+                </article>
+                <article class="card">
+                    <h3>2. {{ t.step2Title }}</h3>
+                    <p>{{ t.step2Desc.replace('{city}', city) }}</p>
+                </article>
+                <article class="card">
+                    <h3>3. {{ t.step3Title }}</h3>
+                    <p>{{ t.step3Desc }}</p>
+                </article>
+            </div>
+        </section>
+
+        <section style="margin-top: 60px;">
+            <h2>{{ t.seoLinksTitle }}</h2>
+            <div class="seo-links">
+                <a :href="'/' + formatSlug(t.seoLink1) + '-' + formatSlug(city)">{{ t.seoLink1 }} {{ city }}</a>
+                <a :href="'/' + formatSlug(t.seoLink2) + '-' + formatSlug(city)">{{ t.seoLink2 }} {{ city }}</a>
+                <a :href="'/' + formatSlug(t.seoLink3) + '-' + formatSlug(city)">{{ t.seoLink3 }} {{ city }}</a>
+                <a :href="'/' + formatSlug(t.seoLink1) + '-new-york'">{{ t.seoLink1 }} New York</a>
+                <a :href="'/' + formatSlug(t.seoLink2) + '-sao-paulo'">{{ t.seoLink2 }} São Paulo</a>
+            </div>
+        </section>
+
+        <section style="margin-top: 60px;">
+            <h2>{{ t.faqTitle }}</h2>
+            <div class="faq-item">
+                <h3>{{ t.faq1Q }}</h3>
+                <p>{{ t.faq1A }}</p>
+            </div>
+            <div class="faq-item">
+                <h3>{{ t.faq2Q }}</h3>
+                <p>{{ t.faq2A.replace('{city}', city) }}</p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="hero" style="padding: 40px 20px; margin-top: 40px; border-top: 1px solid #334155; border-bottom: none;">
+        <div class="container">
+            <h2>{{ t.footerTitle }}</h2>
+            <a :href="affiliateLink" class="cta">{{ t.ctaPrimary.replace('{city}', city) }}</a>
+            
+            <div class="trust-signals">
+                <span class="trust-item">{{ t.trustPrivacy }}</span>
+                <span class="trust-item">{{ t.trustVerified }}</span>
+                <span class="trust-item">{{ t.trustAge }}</span>
+            </div>
+            <p style="margin-top:30px; font-size:0.8rem; opacity:0.5;">
+                {{ t.copyright }}
+                <a href="#" style="color:var(--text-muted)">{{ t.terms }}</a> | <a href="#" style="color:var(--text-muted)">{{ t.privacy }}</a>
+            </p>
+        </div>
+    </footer>
+
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://yoursite.com/#website",
+      "url": "https://yoursite.com",
+      "name": "Local Dating Match",
+      "description": "Meet real singles near you today."
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://yoursite.com/#organization",
+      "name": "Local Dating Match",
+      "url": "https://yoursite.com",
+      "logo": "https://yoursite.com/logo.png"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is the platform safe?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Profiles and conversations remain strictly private and secure."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I meet people near me?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, our geolocation matching helps you find active members in your specific city and surrounding areas."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://yoursite.com"
+      }]
+    }
+  ]
+}
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const { createApp, ref, computed, onMounted } = Vue;
+
+    // Translation Dictionary (SECTION 2: INTERNATIONAL SEO)
+    const translations = {
+        en: {
+            heroHeadline: "Meet Real Singles in {city}",
+            heroSubheadline: "Good {time}! Thousands of people are using their {device} to meet someone new today.",
+            ctaPrimary: "See Matches in {city}",
+            usersOnline: "Active Users Online",
+            securePlatform: "🔒 Secure Platform",
+            privateProfiles: "👤 Private Profiles",
+            swipeTitle: "Who catches your eye in {city}?",
+            swipeSub: "Swipe right to like, left to pass.",
+            milesAway: "miles away",
+            matchSuccess: "You've got matches!",
+            matchSub: "Create your free profile to see who liked you back.",
+            ctaMatch: "Unlock Your Matches",
+            quizTitle: "Let's find your perfect match",
+            quizCompleteTitle: "Matches Found!",
+            quizCompleteSub: "We found 15+ potential matches near {city} based on your answers.",
+            ctaFinal: "Click Here to Connect",
+            howItWorks: "How It Works",
+            step1Title: "Create a Profile",
+            step1Desc: "Join in seconds and set up your secure profile.",
+            step2Title: "Discover Matches",
+            step2Desc: "Browse profiles of verified people near {city}.",
+            step3Title: "Start Chatting",
+            step3Desc: "Connect and start conversations instantly.",
+            seoLinksTitle: "Browse by Category",
+            seoLink1: "Dating in",
+            seoLink2: "Singles in",
+            seoLink3: "Meet People in",
+            faqTitle: "Frequently Asked Questions",
+            faq1Q: "Is the platform safe?",
+            faq1A: "Yes. Profiles and conversations remain strictly private.",
+            faq2Q: "Can I meet people near me?",
+            faq2A: "The platform uses advanced algorithms to find people precisely in {city}.",
+            footerTitle: "Ready to meet someone special?",
+            trustPrivacy: "🛡️ Privacy Protected",
+            trustVerified: "✓ Verified Profiles",
+            trustAge: "18+ Only",
+            copyright: "© 2026 Online Dating Platform. All rights reserved.",
+            terms: "Terms",
+            privacy: "Privacy",
+            q1: "Who are you interested in meeting?",
+            q1a: "Women", q1b: "Men", q1c: "Everyone",
+            q2: "What age range do you prefer?",
+            q2a: "18-25", q2b: "26-35", q2c: "36-50", q2d: "50+",
+            q3: "What are you looking for?",
+            q3a: "Casual Dating", q3b: "Serious Relationship", q3c: "New Friends"
+        },
+        pt: {
+            heroHeadline: "Conheça Solteiros em {city}",
+            heroSubheadline: "Boa {time}! Milhares de pessoas estão usando o {device} para conhecer alguém hoje.",
+            ctaPrimary: "Ver Perfis em {city}",
+            usersOnline: "Usuários Ativos",
+            securePlatform: "🔒 Plataforma Segura",
+            privateProfiles: "👤 Perfis Privados",
+            swipeTitle: "Quem chama sua atenção em {city}?",
+            swipeSub: "Deslize para a direita para curtir, esquerda para passar.",
+            milesAway: "km de distância",
+            matchSuccess: "Você tem combinações!",
+            matchSub: "Crie seu perfil gratuito para ver quem curtiu você.",
+            ctaMatch: "Desbloquear Matches",
+            quizTitle: "Vamos encontrar o par perfeito",
+            quizCompleteTitle: "Perfis Encontrados!",
+            quizCompleteSub: "Encontramos mais de 15 perfis perto de {city} baseados nas suas respostas.",
+            ctaFinal: "Clique Aqui para Conectar",
+            howItWorks: "Como Funciona",
+            step1Title: "Crie um Perfil",
+            step1Desc: "Cadastre-se em segundos com segurança.",
+            step2Title: "Descubra Perfis",
+            step2Desc: "Navegue por pessoas verificadas perto de {city}.",
+            step3Title: "Comece a Conversar",
+            step3Desc: "Conecte-se e inicie conversas na hora.",
+            seoLinksTitle: "Navegar por Categoria",
+            seoLink1: "Encontros em",
+            seoLink2: "Solteiros em",
+            seoLink3: "Conhecer Pessoas em",
+            faqTitle: "Perguntas Frequentes",
+            faq1Q: "A plataforma é segura?",
+            faq1A: "Sim. Os perfis e conversas permanecem estritamente privados.",
+            faq2Q: "Posso conhecer pessoas perto de mim?",
+            faq2A: "A plataforma usa algoritmos avançados para encontrar pessoas exatamente em {city}.",
+            footerTitle: "Pronto para conhecer alguém especial?",
+            trustPrivacy: "🛡️ Privacidade Protegida",
+            trustVerified: "✓ Perfis Verificados",
+            trustAge: "Apenas +18",
+            copyright: "© 2026 Plataforma de Encontros Online. Todos os direitos reservados.",
+            terms: "Termos",
+            privacy: "Privacidade",
+            q1: "Quem você quer conhecer?",
+            q1a: "Mulheres", q1b: "Homens", q1c: "Todos",
+            q2: "Qual faixa etária você prefere?",
+            q2a: "18-25", q2b: "26-35", q2c: "36-50", q2d: "50+",
+            q3: "O que você está procurando?",
+            q3a: "Encontros Casuais", q3b: "Relacionamento Sério", q3c: "Novos Amigos"
+        }
+    };
+
+    const app = createApp({
+        setup() {
+            const affiliateLink = "https://bggcgce.datesoffers.com/s/59cd6ef16fd92";
+            const city = ref("Sua Região"); 
+            const lang = ref("en");
+            const onlineUsers = ref(1450);
+            const recentActivity = ref("New user joined 2 mins ago.");
+            const deviceType = ref("device");
+            const timeOfDay = ref("day");
+            
+            const swipeActive = ref(true);
+            const currentProfileIndex = ref(0);
+            const swipeTransform = ref('');
+            const swipeOpacity = ref(1);
+            let touchStartX = 0;
+
+            // CONFIGURAÇÃO DAS IMAGENS: Agora utilizando caminhos locais do GitHub (pasta /imagem/)
+            const swipeProfiles = ref([
+                { name: "Jessica", age: 24, distance: 2, img: "./imagem/image_1.jepg" },
+                { name: "Angeline", age: 46, distance: 5, img: "./imagem/image_2.jepg" },
+                { name: "Sarah", age: 36, distance: 1, img: "./imagem/image_3.jepg" }
+		{ name: "Mariana", age: 52, distance: 4, img: "./imagem/image_4.jepg" }
+            ]);
+
+            const quizStep = ref(0);
+            const quizCompleted = ref(false);
+            const tMap = computed(() => translations[lang.value] || translations['en']);
+
+            const quizQuestions = computed(() => [
+                { question: tMap.value.q1, options: [tMap.value.q1a, tMap.value.q1b, tMap.value.q1c] },
+                { question: tMap.value.q2, options: [tMap.value.q2a, tMap.value.q2b, tMap.value.q2c, tMap.value.q2d] },
+                { question: tMap.value.q3, options: [tMap.value.q3a, tMap.value.q3b, tMap.value.q3c] }
+            ]);
+
+            const formatSlug = (str) => str.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+
+            const initGeo = async () => {
+                try {
+                    const res = await fetch('https://get.geojs.io/v1/ip/geo.json');
+                    const data = await res.json();
+                    
+                    if (data.city) {
+                        city.value = data.city;
+                    } else if (data.region) {
+                        city.value = data.region;
+                    }
+                } catch (e) {
+                    console.log("Geo fallback failed, using default.");
+                }
+            };
+
+            const initLang = () => {
+                const navLang = navigator.language.slice(0, 2);
+                if (translations[navLang]) {
+                    lang.value = navLang;
+                    document.documentElement.lang = navLang;
+                }
+            };
+
+            const initTimeAndDevice = () => {
+                const hour = new Date().getHours();
+                if (hour < 12) timeOfDay.value = "morning";
+                else if (hour < 18) timeOfDay.value = "afternoon";
+                else timeOfDay.value = "evening";
+
+                deviceType.value = /Mobi|Android/i.test(navigator.userAgent) ? "phone" : "computer";
+            };
+
+            const simSocialProof = () => {
+                setInterval(() => {
+                    onlineUsers.value += Math.floor(Math.random() * 5) - 2;
+                }, 4000);
+
+                setInterval(() => {
+                    const isPt = lang.value === 'pt';
+                    const activities = isPt ? [
+                        `Usuário de ${city.value} acabou de verificar o perfil.`,
+                        `Alguém deu match na sua região.`,
+                        `3 novos usuários online perto de você.`
+                    ] : [
+                        `User from ${city.value} just verified their profile.`,
+                        `Someone matched in your area.`,
+                        `3 new users online near you.`
+                    ];
+                    recentActivity.value = activities[Math.floor(Math.random() * activities.length)];
+                }, 8000);
+            };
+
+            const handleSwipe = (direction) => {
+                const translate = direction === 'left' ? '-100vw' : '100vw';
+                const rotate = direction === 'left' ? '-20deg' : '20deg';
+                swipeTransform.value = `translate(${translate}) rotate(${rotate})`;
+                swipeOpacity.value = 0;
+                
+                setTimeout(() => {
+                    currentProfileIndex.value++;
+                    swipeTransform.value = '';
+                    swipeOpacity.value = 1;
+                    if(currentProfileIndex.value >= swipeProfiles.value.length) {
+                        setTimeout(() => { swipeActive.value = false; }, 2000);
+                    }
+                }, 300);
+            };
+
+            const touchStart = (e) => { touchStartX = e.touches[0].clientX; };
+            const touchMove = (e) => {
+                const touchCurrentX = e.touches[0].clientX;
+                const diff = touchCurrentX - touchStartX;
+                swipeTransform.value = `translateX(${diff}px) rotate(${diff * 0.05}deg)`;
+            };
+            const touchEnd = (e) => {
+                const touchEndX = e.changedTouches[0].clientX;
+                const diff = touchEndX - touchStartX;
+                if (diff > 50) handleSwipe('right');
+                else if (diff < -50) handleSwipe('left');
+                else swipeTransform.value = '';
+            };
+
+            const nextQuizStep = () => {
+                if (quizStep.value < quizQuestions.value.length - 1) {
+                    quizStep.value++;
+                } else {
+                    quizCompleted.value = true;
+                }
+            };
+
+            onMounted(() => {
+                initLang();
+                initGeo().then(() => {
+                    simSocialProof(); 
+                });
+                initTimeAndDevice();
+                
+                if(lang.value === 'pt') {
+                    if(timeOfDay.value === 'morning') timeOfDay.value = 'dia';
+                    else if(timeOfDay.value === 'afternoon') timeOfDay.value = 'tarde';
+                    else timeOfDay.value = 'noite';
+                    
+                    deviceType.value = deviceType.value === 'phone' ? 'celular' : 'computador';
+                }
+            });
+
+            return {
+                affiliateLink, city, lang, onlineUsers, recentActivity, deviceType, timeOfDay,
+                t: tMap, formatSlug,
+                swipeActive, swipeProfiles, currentProfileIndex, swipeTransform, swipeOpacity,
+                handleSwipe, touchStart, touchMove, touchEnd,
+                quizStep, quizQuestions, quizCompleted, nextQuizStep
+            };
+        }
+    });
+
+    app.mount('#app');
+});
+</script>
+
+</body>
 </html>
